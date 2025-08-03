@@ -132,17 +132,12 @@ function updateScore() {
   scoreDiv.textContent = "Punkte: " + tailLength;
 }
 
-// Bergmannslogo als Image-Objekt für Canvas-Hintergrund
-const bergmannLogoImg = new window.Image();
-bergmannLogoImg.src = "js/img/bergmann_logo.png";
-
 // Variable zum Ein-/Ausblenden des Logos
 let showLogo = true;
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
+// Bergmannslogo aus index.html holen
+const bergmannLogoImg = document.getElementById("bergmannLogo");
 
-/*******  73d521dc-91cd-4c0e-a5c3-e39227e037db  *******/
 function draw() {
   ctx.fillStyle = "#e0f7ff";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
