@@ -1,0 +1,12 @@
+{
+  "name": "snake-game",
+  "version": "1.0.0",
+  "description": "Ein klassisches Snake-Spiel - Friss die Maus!",
+  "main": "index.html",
+  "scripts": {
+    "start": "start index.html"
+  },
+  "keywords": ["game", "snake", "javascript", "canvas"],
+  "author": "",
+  "license": "MIT"
+}
