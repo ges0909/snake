@@ -78,7 +78,7 @@ let velocityY = 0;
 let food = { x: 15, y: 15 };
 let tailLength = 1;
 let paused = false;
-let speed = 6;
+let speed = parseInt(localStorage.getItem("snakeSpeed") || "6", 10);
 let lastTime = 0;
 
 const scoreDiv = document.getElementById("score");
@@ -133,7 +133,7 @@ function updateScore() {
 }
 
 // Variable zum Ein-/Ausblenden des Logos
-let showLogo = true;
+let showLogo = localStorage.getItem("snakeShowLogo") !== "false";
 
 // Bergmannslogo aus index.html holen
 const bergmannLogoImg = document.getElementById("bergmannLogo");
@@ -360,6 +360,7 @@ document.addEventListener("keydown", (e) => {
     case "f":
     case "F":
       showLogo = !showLogo;
+      localStorage.setItem("snakeShowLogo", showLogo.toString());
       draw(); // sofortiges Redraw
       break;
   }
@@ -383,24 +384,25 @@ document.addEventListener("keydown", function (e) {
   }
   // Slider mit + und - steuern
   if (e.key === "+") {
-    // Plus-Taste
     let val = parseInt(speedSlider.value, 10);
     if (val < parseInt(speedSlider.max, 10)) {
       speedSlider.value = val + 1;
-      speedSlider.dispatchEvent(new Event("input"));
+      updateSpeed();
     }
   } else if (e.key === "-") {
-    // Minus-Taste (auch deutsches Layout)
     let val = parseInt(speedSlider.value, 10);
     if (val > parseInt(speedSlider.min, 10)) {
       speedSlider.value = val - 1;
-      speedSlider.dispatchEvent(new Event("input"));
+      updateSpeed();
     }
   }
 });
 
 const speedSlider = document.getElementById("speedSlider");
 const sliderValue = document.getElementById("sliderValue");
+
+// Gespeicherte Geschwindigkeit laden
+speedSlider.value = speed;
 
 speedSlider.addEventListener("keydown", function (e) {
   e.preventDefault(); // Nur Mausbedienung erlauben
@@ -409,6 +411,7 @@ speedSlider.addEventListener("keydown", function (e) {
 function updateSpeed() {
   speed = parseInt(speedSlider.value, 10);
   sliderValue.textContent = speed;
+  localStorage.setItem("snakeSpeed", speed.toString());
 }
 
 speedSlider.oninput = updateSpeed;
