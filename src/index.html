@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Friss die Maus!</title>
+    <link rel="stylesheet" href="css/snake.css" />
+  </head>
+  <body>
+    <canvas height="520" id="gameCanvas" width="520"></canvas>
+    <div id="gameOverOverlay">
+      <div class="game-over-title">Ende</div>
+      <button class="restart-btn" id="restartBtn">Nochmal spielen</button>
+      <div id="scoreHistory"></div>
+    </div>
+
+    <div
+      id="score" class="score"
+    >
+      Punkte: 1
+    </div>
+
+    <div id="controls">
+      <div class="arrow-keys">
+        <div class="arrow-row">
+          <button aria-label="Oben" class="arrow-btn" id="btn-up">
+            &#8593;
+          </button>
+        </div>
+        <div class="arrow-row">
+          <button aria-label="Links" class="arrow-btn" id="btn-left">
+            &#8592;
+          </button>
+          <div
+            style="display: flex; flex-direction: column; align-items: center"
+          >
+            <button class="pause-btn" id="pauseBtn">Pause</button>
+          </div>
+          <button aria-label="Rechts" class="arrow-btn" id="btn-right">
+            &#8594;
+          </button>
+        </div>
+        <div class="arrow-row">
+          <button aria-label="Unten" class="arrow-btn" id="btn-down">
+            &#8595;
+          </button>
+        </div>
+      </div>
+      <div class="slider-container">
+        <label for="speedSlider"></label>
+        <div class="slider-minmax" id="sliderMinLabel">Langsam</div>
+        <input id="speedSlider" max="5" min="1" type="range" value="1" />
+        <div class="slider-minmax" id="sliderMaxLabel">Schnell</div>
+        <span class="slider-value" id="sliderValue">1</span>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 6px;
+        "
+      >
+        <span style="font-size: 12px; color: #7c3bbd; margin-top: 2px"
+          >Pause mit <b>Leertaste</b></span
+        >
+        <span style="font-size: 12px; color: #7c3bbd; margin-top: 2px"
+          >Geschwindigkeit mit <b>+</b> und <b>-</b> ändern</span
+        >
+        <span style="font-size: 12px; color: #7c3bbd; margin-top: 2px"
+          >Logo mit <b>F</b> ein-/ausblenden</span
+        >
+      </div>
+    </div>
+
+    <script src="js/snake.js"></script>
+  </body>
+</html>
