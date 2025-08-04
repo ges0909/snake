@@ -1,4 +1,4 @@
-const version = "1.0.1";
+const version = "1.0.2";
 
 // Hilfsfunktion: Spielstand in Local Storage speichern
 function saveScoreToLocalStorage(scoreEntry) {
@@ -58,11 +58,11 @@ const restartBtn = document.getElementById("restartBtn");
 if (restartBtn) {
     restartBtn.onclick = function () {
         gameOverOverlay.style.display = "none";
-        // Spiel zurücksetzen
-        snake = [{x: 10, y: 10}];
+        // Spiel zurücksetzen mit Zufallsposition
+        snake = [getRandomPosition()];
         velocityX = 0;
         velocityY = 0;
-        food = {x: 15, y: 15};
+        food = getRandomPosition();
         tailLength = 1;
         lastTime = 0;
         paused = false;
@@ -72,10 +72,18 @@ if (restartBtn) {
     };
 }
 
-let snake = [{x: 10, y: 10}];
+function getRandomPosition() {
+    return {
+        x: Math.floor(Math.random() * tileCount),
+        y: Math.floor(Math.random() * tileCount)
+    };
+}
+
+// Initiale Zufallspositionierung von Schlange und Maus
+let snake = [getRandomPosition()];
 let velocityX = 0;
 let velocityY = 0;
-let food = {x: 15, y: 15};
+let food = getRandomPosition();
 let tailLength = 1;
 let paused = false;
 let speed = parseInt(localStorage.getItem("snakeSpeed") || "6", 10);
