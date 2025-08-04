@@ -120,11 +120,19 @@ function update() {
   if (head.x === food.x && head.y === food.y) {
     tailLength++;
     updateScore();
-    food = {
+    generateNewFood();
+  }
+}
+
+function generateNewFood() {
+  let newFood;
+  do {
+    newFood = {
       x: Math.floor(Math.random() * tileCount),
       y: Math.floor(Math.random() * tileCount),
     };
-  }
+  } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+  food = newFood;
 }
 
 function updateScore() {
