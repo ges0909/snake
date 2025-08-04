@@ -4,14 +4,12 @@
   "description": "Ein klassisches Snake-Spiel - Friss die Maus!",
   "main": "index.html",
   "scripts": {
-    "start": "start index.html",
-    "prepare": "husky install"
+    "start": "start index.html"
   },
   "keywords": [
     "game",
     "snake",
-    "javascript",
-    "canvas"
+    "javascript"
   ],
   "author": "",
   "license": "MIT"
