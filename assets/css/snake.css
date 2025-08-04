@@ -210,3 +210,60 @@ canvas {
   margin: 8px 0 4px;
   text-shadow: 1px 1px 0 #fff;
 }
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  canvas {
+    width: 90vw;
+    height: 90vw;
+    max-width: 400px;
+    max-height: 400px;
+  }
+  
+  .arrow-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+    margin: 2px;
+  }
+  
+  .pause-btn {
+    width: 120px;
+    height: 48px;
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+  
+  #speedSlider {
+    width: 150px;
+  }
+  
+  .slider-container {
+    gap: 8px;
+  }
+  
+  .slider-minmax {
+    font-size: 14px;
+    min-width: 40px;
+  }
+  
+  .slider-value {
+    font-size: 20px;
+    min-width: 30px;
+  }
+  
+  #version {
+    bottom: 5px !important;
+    right: 5px !important;
+    font-size: 8px !important;
+  }
+  
+  #gameOverOverlay > div:first-child {
+    font-size: 36px;
+  }
+  
+  #scoreHistory {
+    max-width: 280px;
+    font-size: 14px;
+  }
+}
