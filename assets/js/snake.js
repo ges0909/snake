@@ -1,3 +1,5 @@
+const version = "1.0.1";
+
 // Hilfsfunktion: Spielstand in Local Storage speichern
 function saveScoreToLocalStorage(scoreEntry) {
   let scores = JSON.parse(localStorage.getItem("snakeScores") || "[]");
@@ -69,8 +71,6 @@ if (restartBtn) {
     showScoreHistory();
   };
 }
-
-// Button zum Speichern wird entfernt
 
 let snake = [{ x: 10, y: 10 }];
 let velocityX = 0;
@@ -424,6 +424,8 @@ function updateSpeed() {
 
 speedSlider.oninput = updateSpeed;
 updateSpeed();
+
+document.getElementById("version").textContent = `v${version}`;
 
 requestAnimationFrame(gameLoop);
 
